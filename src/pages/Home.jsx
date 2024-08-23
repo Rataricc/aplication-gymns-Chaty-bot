@@ -68,7 +68,7 @@ export default function Home() {
                                 </ul>
                             </div>
                             <div className="col-md-6 order-md-1">
-                                <img src="https://res.cloudinary.com/dydhkd08i/image/upload/c_crop,w_420,h_250/v1717082948/table_mdr7sa.png" alt="Profile" className="img-fluid mb-3" />
+                                <img src="https://res.cloudinary.com/dydhkd08i/image/upload/c_crop,w_420,h_250/v1717082948/table_mdr7sa.png" alt="" className="img-fluid mb-3" />
                                 <br /><br /><br /><br /><br /><br />
                                 <img src="https://res.cloudinary.com/dydhkd08i/image/upload/v1717118214/tableimg_x8el36.png" />
                             </div>

@@ -13,7 +13,7 @@ export default function ClasseData() {
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error('Error fetching users:', error));
-    }, []);
+    }, [endpoint]);
 
     const handleUpdate = (classeId) => {
         const classe = data.find(classe => classe.id === classeId);

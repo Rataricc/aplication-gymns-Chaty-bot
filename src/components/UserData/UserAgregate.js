@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function UserAgregate() {
   const [formData, setFormData] = useState({
@@ -58,9 +59,9 @@ export default function UserAgregate() {
         <div className="login-box">
           <div className="card card-outline card-primary">
             <div className="card-header text-center">
-              <a href="#" className="h1">
+              <Link to="#" className="h1">
                 <b>Chaty</b>Bot
-              </a>
+              </Link>
             </div>
             <div className="card-body">
               <p className="login-box-msg">Register a new user</p>
