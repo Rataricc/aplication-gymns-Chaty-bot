@@ -1,6 +1,17 @@
-import React from 'react'; 
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthProvider, AuthContext } from './AuthProvider/AuthProvider.js';
 
 export default function Header() {
+
+    const { logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login'); 
+    };
+
     return (
         <>
             <nav className="main-header navbar navbar-expand navbar-white navbar-light">
@@ -10,7 +21,7 @@ export default function Header() {
                         <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
-                        <a href="index3.html" className="nav-link">Home</a>
+                        <a href="http://localhost:3000/content" className="nav-link">Home</a>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
                         <a href="#" className="nav-link">Contact</a>
@@ -134,6 +145,13 @@ export default function Header() {
                             <i className="fas fa-th-large" />
                         </a>
                     </li>
+
+                    <li className="nav-item">
+                        <button className="nav-link" onClick={handleLogout} role="button">
+                            <i className="fas fa-sign-out-alt" /> Logout
+                        </button>
+                    </li>
+
                 </ul>
             </nav>
 

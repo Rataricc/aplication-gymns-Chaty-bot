@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 
 export default function Register() {
     const [formData, setFormData] = useState({
-        full_name: '',
+        name: '',
         username: '',
         email: '',
+        address: '',
+        phone: '',        
         password: '',
         confirmPassword: ''
     });
-
     const [message, setMessage] = useState('');
 
     const handleChange = (e) => {
@@ -30,9 +31,11 @@ export default function Register() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    full_name: formData.full_name,
+                    name: formData.name,
                     username: formData.username,
                     email: formData.email,
+                    address: formData.address,
+                    phone: formData.phone,
                     password: formData.password
                 })
             });
@@ -68,9 +71,9 @@ export default function Register() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Full name"
-                                        name="full_name"
-                                        value={formData.full_name}
+                                        placeholder="name"
+                                        name="name"
+                                        value={formData.name}
                                         onChange={handleChange}
                                         required
                                     />
@@ -103,6 +106,38 @@ export default function Register() {
                                         placeholder="Email"
                                         name="email"
                                         value={formData.email}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <div className="input-group-append">
+                                        <div className="input-group-text">
+                                            <span className="fas fa-envelope" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Address"
+                                        name="address"
+                                        value={formData.address}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <div className="input-group-append">
+                                        <div className="input-group-text">
+                                            <span className="fas fa-envelope" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="input-group mb-3">
+                                    <input
+                                        type="phone"
+                                        className="form-control"
+                                        placeholder="Phone"
+                                        name="phone"
+                                        value={formData.phone}
                                         onChange={handleChange}
                                         required
                                     />

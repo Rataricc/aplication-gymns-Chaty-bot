@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+const randomImageUrls = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMjW6pmo8lMNPil7gwKP7ycEyzUsoeWjzbkQ&s'
+];
 
 export default function Aside() {
+    const [gymName, setGymName] = useState('');
+
+    useEffect(() => {
+        const name = localStorage.getItem('gymName');
+        setGymName(name);
+    }, []);
+
     return (
         <>
-
             <aside className="main-sidebar sidebar-dark-primary elevation-4">
                 {/* Brand Logo */}
                 <a href="#" className="brand-link">
@@ -15,10 +26,10 @@ export default function Aside() {
                     {/* Sidebar user panel (optional) */}
                     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
                         <div className="image">
-                            <img src="#" className="img-circle elevation-2" alt="User Image" />
+                            <img src={randomImageUrls} className="img-circle elevation-2" alt="User Image" />
                         </div>
                         <div className="info">
-                            <a href="#" className="d-block">Chaty-bot</a>
+                            <a href="#" className="d-block">{gymName}</a>
                         </div>
                     </div>
                     {/* SidebarSearch Form */}
@@ -45,6 +56,8 @@ export default function Aside() {
                                         <i className="right fas fa-angle-left" />
                                     </p>
                                 </a>
+
+                                {/* 
                                 <ul className="nav nav-treeview">
                                     <li className="nav-item">
                                         <a href="./index.html" className="nav-link">
@@ -64,64 +77,130 @@ export default function Aside() {
                                             <p>Dashboard v3</p>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
+
                             </li>
 
-                            <li className="nav-header">EXAMPLES</li>
+                            <li className="nav-header">ITEMS</li>
                             <li className="nav-item">
-                                <a href="pages/calendar.html" className="nav-link">
-                                    <i className="nav-icon fas fa-calendar-alt" />
+                                <Link to="#" className="nav-link">
+                                    <i className="nav-icon bi bi-people" />
                                     <p>
-                                        Calendar
-                                        <span className="badge badge-info right">2</span>
-                                    </p>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="pages/gallery.html" className="nav-link">
-                                    <i className="nav-icon far fa-image" />
-                                    <p>
-                                        Gallery
-                                    </p>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="pages/kanban.html" className="nav-link">
-                                    <i className="nav-icon fas fa-columns" />
-                                    <p>
-                                        Kanban Board
-                                    </p>
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a href="#" className="nav-link">
-                                    <i className="nav-icon far fa-envelope" />
-                                    <p>
-                                        Mailbox
+                                        Users
                                         <i className="fas fa-angle-left right" />
+                                        <span className="badge badge-info right"></span>
                                     </p>
-                                </a>
+                                </Link>
                                 <ul className="nav nav-treeview">
                                     <li className="nav-item">
-                                        <a href="pages/mailbox/mailbox.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon" />
-                                            <p>Inbox</p>
-                                        </a>
+                                        <Link to="/content/users" className="nav-link" >
+                                            <i className="nav-icon bi bi-person-check-fill" />
+                                            <p>Users List</p>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="pages/mailbox/compose.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon" />
-                                            <p>Compose</p>
-                                        </a>
+                                        <Link to='/content/user/agregate' className='nav-link'>
+                                            <i className="nav-icon bi bi-person-fill-add" />
+                                            <p>User Agregate</p>
+                                        </Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="pages/mailbox/read-mail.html" className="nav-link">
+                                        <Link to='/content/users/stats' className='nav-link'>
+                                            <i className="nav-icon bi bi-person-fill-add" />
+                                            <p>User Dashboard</p>
+                                        </Link>
+                                    </li>
+                                    {/* 
+                                    <li className="nav-item">
+                                        <a href="./index3.html" className="nav-link active">
                                             <i className="far fa-circle nav-icon" />
-                                            <p>Read</p>
+                                            <p>Update Users</p>
                                         </a>
+                                    </li>*/}
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="#" className="nav-link">
+                                    <i className="nav-icon bi bi-person-arms-up" />
+                                    <p>
+                                        Classes
+                                        <i className="fas fa-angle-left right" />
+                                    </p>
+                                </Link>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/content/classes" className="nav-link" >
+                                            <i className="nav-icon bi bi-clipboard2-check-fill" />
+                                            <p>Classes List</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="classe/agregate" className="nav-link">
+                                            <i className="nav-icon bi bi-clipboard2-plus-fill" />
+                                            <p>Classe Agregate</p>
+                                        </Link>
                                     </li>
                                 </ul>
                             </li>
+                            <li className="nav-item">
+                                <Link to="#" className='nav-link' >
+                                    <i className="nav-icon bi bi-person-check" />
+                                    <p>
+                                        Membership
+                                        <i className="fas fa-angle-left right" />
+                                    </p>
+                                </Link>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/content/memberships" className="nav-link" >
+                                            <i className="nav-icon bi bi-card-checklist" />
+                                            <p>Membership List</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/content/membership/agregate" className="nav-link">
+                                            <i className="nav-icon bi bi-person-fill-add" />
+                                            <p>Membership Agregate</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to='/content/membership/stats' className='nav-link'>
+                                            <i className="nav-icon bi bi-person-fill-add" />
+                                            <p>Membership Dashboard</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="#" className='nav-link'>
+                                    <i className="nav-icon bi bi-currency-dollar" />
+                                    <p>
+                                        Payments
+                                        <i className="fas fa-angle-left right" />
+                                    </p>
+                                </Link>
+                                <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <Link to="/content/payments" className="nav-link" >
+                                            <i className="nav-icon bi bi-card-checklist" />
+                                            <p>Payments List</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to="/content/payment/agregate" className="nav-link">
+                                            <i className="nav-icon bi bi-cash-coin" />
+                                            <p>Payments Agregate</p>
+                                        </Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to='/content/payment/stats' className='nav-link'>
+                                            <i className="nav-icon bi bi-person-fill-add" />
+                                            <p>Payments Dashboard</p>
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </li>
+                            {/* 
                             <li className="nav-item">
                                 <a href="#" className="nav-link">
                                     <i className="nav-icon fas fa-book" />
@@ -344,7 +423,7 @@ export default function Aside() {
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>  */}
                         </ul>
                     </nav>
                     {/* /.sidebar-menu */}

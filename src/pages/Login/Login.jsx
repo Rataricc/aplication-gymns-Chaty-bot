@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../components/AuthProvider/AuthProvider.js';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -7,7 +9,17 @@ export default function Login() {
     });
 
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
+    //Estado provisorio hasta ver a profunidad que es lo que esta pasando; 
+    const { isAuthenticated, login } = useContext(AuthContext);
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/content');
+        }
+    }, [isAuthenticated, navigate]);
+
+    //---------------------------------------------------------------------------
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -31,8 +43,12 @@ export default function Login() {
 
             if (response.ok) {
                 setMessage('Login successful!');
-                localStorage.setItem('token', data.token);
+                console.log("Login successful, setting token and gymName in context");
+                login(data.token, data.gymName, data.gymId);
+                //localStorage.setItem('token', data.token);
+                //localStorage.setItem('gymName', data.gymName);
                 // You can redirect the user to a protected page here
+                navigate('/content');
             } else {
                 setMessage(data.message || 'Login failed');
             }
