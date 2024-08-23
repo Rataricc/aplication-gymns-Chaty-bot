@@ -25,7 +25,7 @@ export default function Home() {
     useEffect(() => {
         const name = localStorage.getItem('gymName');
         setGymName(name);
-    }, []);
+    }, [setGymName]);
 
     return (
         <div>
