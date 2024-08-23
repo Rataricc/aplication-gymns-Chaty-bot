@@ -18,10 +18,16 @@ export default function Home() {
     return (
         <>
             <div className={`content ${isDarkMode ? "dark-mode" : ""}`}>
-            <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
+                <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
                     <Container>
-                        <Navbar.Brand as={Link} to="/">
-                            Chaty-Bot
+                    <Navbar.Brand as={Link} to="/">
+                            <Navbar.Brand to="#home">Chaty-Bot</Navbar.Brand>
+                            <Nav className="me-auto">
+                                <Nav.Link href="#1">¿Qué hacemos?</Nav.Link>
+                                <Nav.Link href="#2">Mensajes</Nav.Link>
+                                <Nav.Link href="#3">¿Cómo ingresar?</Nav.Link>
+                                <Nav.Link href="http://localhost:3000/login">Login</Nav.Link>
+                            </Nav>
                         </Navbar.Brand>
                         <Nav className="me-auto">
                             <Nav.Link as={Link} to="#1">¿Qué hacemos?</Nav.Link>
