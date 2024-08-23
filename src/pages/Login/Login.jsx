@@ -66,7 +66,7 @@ export default function Login() {
                     <div className="login-box">
                         <div className="card card-outline card-primary">
                             <div className="card-header text-center">
-                                <Link to="#" className="h1"><b>Chaty</b>Bot</Link>
+                                <Link to="#https://chaty-gyms.netlify.app" className="h1"><b>Chaty</b>Bot</Link>
                             </div>
                             <div className="card-body">
                                 <p className="login-box-msg">Sign in to start your session</p>
