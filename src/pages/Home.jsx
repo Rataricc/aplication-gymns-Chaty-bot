@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 import './darkMode.css';
 
 export default function Home() {
@@ -17,14 +18,16 @@ export default function Home() {
     return (
         <>
             <div className={`content ${isDarkMode ? "dark-mode" : ""}`}>
-                <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
+            <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
                     <Container>
-                        <Navbar.Brand href="#home">Chaty-Bot</Navbar.Brand>
+                        <Navbar.Brand as={Link} to="/">
+                            Chaty-Bot
+                        </Navbar.Brand>
                         <Nav className="me-auto">
-                            <Nav.Link href="#1">¿Qué hacemos?</Nav.Link>
-                            <Nav.Link href="#2">Mensajes</Nav.Link>
-                            <Nav.Link href="#3">¿Cómo ingresar?</Nav.Link>
-                            <Nav.Link href="http://localhost:3000/login">Login</Nav.Link>
+                            <Nav.Link as={Link} to="#1">¿Qué hacemos?</Nav.Link>
+                            <Nav.Link as={Link} to="#2">Mensajes</Nav.Link>
+                            <Nav.Link as={Link} to="#3">¿Cómo ingresar?</Nav.Link>
+                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
                         </Nav>
                         <button onClick={toggleDarkMode} className="btn btn-secondary">
                             {isDarkMode ? "Light Mode" : "Dark Mode"}
@@ -93,7 +96,7 @@ export default function Home() {
                                 <p>Para comenzar a utilizar <strong>Chaty-Bot</strong>, sigue estos sencillos pasos:</p>
                                 <ul>
                                     <li><strong>Solicitud de Registro:</strong> Para garantizar la seguridad y la correcta gestión de los usuarios, no permitimos el registro directo en nuestra plataforma. Los interesados deben solicitar acceso a través de nuestro equipo de soporte. Esto asegura que cada usuario sea verificado y aprobado adecuadamente.</li>
-                                    <li><strong>Proceso de Solicitud:</strong> Envía una solicitud de registro a nuestro equipo de soporte a través de nuestro formulario de contacto en el sitio web o mediante un correo electrónico a <a href="mailto:support@chaty-bot.com">support@chaty-bot.com</a>. Asegúrate de incluir la siguiente información:
+                                    <li><strong>Proceso de Solicitud:</strong> Envía una solicitud de registro a nuestro equipo de soporte a través de nuestro formulario de contacto en el sitio web o mediante un correo electrónico a <Link to="mailto:support@chaty-bot.com">support@chaty-bot.com</Link>. Asegúrate de incluir la siguiente información:
                                         <ul>
                                             <li>Nombre completo</li>
                                             <li>Nombre de la empresa</li>

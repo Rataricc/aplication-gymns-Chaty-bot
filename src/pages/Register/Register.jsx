@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ export default function Register() {
                 <div className="register-box">
                     <div className="card card-outline card-primary">
                         <div className="card-header text-center">
-                            <a href="#" className="h1"><b>Chaty</b>Bot</a>
+                            <Link to="#" className="h1"><b>Chaty</b>Bot</Link>
                         </div>
                         <div className="card-body">
                             <p className="login-box-msg">Register a new membership</p>
@@ -184,7 +185,7 @@ export default function Register() {
                                         <div className="icheck-primary">
                                             <input type="checkbox" id="agreeTerms" name="terms" defaultValue="agree" />
                                             <label htmlFor="agreeTerms">
-                                                I agree to the <a href="#">terms</a>
+                                                I agree to the <Link to="#">terms</Link>
                                             </label>
                                         </div>
                                     </div>
@@ -196,16 +197,16 @@ export default function Register() {
                                 </div>
                             </form>
                             <div className="social-auth-links text-center">
-                                <a href="#" className="btn btn-block btn-primary">
+                                <Link to="#" className="btn btn-block btn-primary">
                                     <i className="fab fa-facebook mr-2" />
                                     Sign up using Facebook
-                                </a>
-                                <a href="#" className="btn btn-block btn-danger">
+                                </Link>
+                                <Link to="#" className="btn btn-block btn-danger">
                                     <i className="fab fa-google-plus mr-2" />
                                     Sign up using Google+
-                                </a>
+                                </Link>
                             </div>
-                            <a href="http://localhost:3000/login" className="text-center">I already have a membership</a>
+                            <Link to="http://localhost:3000/login" className="text-center">I already have a membership</Link>
                         </div>
                         {/* /.form-box */}
                     </div>{/* /.card */}

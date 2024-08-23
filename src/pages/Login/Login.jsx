@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../components/AuthProvider/AuthProvider.js';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -65,7 +66,7 @@ export default function Login() {
                     <div className="login-box">
                         <div className="card card-outline card-primary">
                             <div className="card-header text-center">
-                                <a href="#" className="h1"><b>Chaty</b>Bot</a>
+                                <Link to="#" className="h1"><b>Chaty</b>Bot</Link>
                             </div>
                             <div className="card-body">
                                 <p className="login-box-msg">Sign in to start your session</p>
@@ -118,18 +119,18 @@ export default function Login() {
                                     </div>
                                 </form>
                                 <div className="social-auth-links text-center mt-2 mb-3">
-                                    <a href="#" className="btn btn-block btn-primary">
+                                    <Link to="#" className="btn btn-block btn-primary">
                                         <i className="fab fa-facebook mr-2" /> Sign in using Facebook
-                                    </a>
-                                    <a href="#" className="btn btn-block btn-danger">
+                                    </Link>
+                                    <Link to="#" className="btn btn-block btn-danger">
                                         <i className="fab fa-google-plus mr-2" /> Sign in using Google+
-                                    </a>
+                                    </Link>
                                 </div>
                                 <p className="mb-1">
-                                    <a href="http://localhost:3000/forgot-password">I forgot my password</a>
+                                    <Link to="http://localhost:3000/forgot-password">I forgot my password</Link>
                                 </p>
                                 <p className="mb-0">
-                                    <a href="http://localhost:3000/register" className="text-center">Register a new membership</a>
+                                    <Link to="http://localhost:3000/register" className="text-center">Register a new membership</Link>
                                 </p>
                             </div>
                         </div>

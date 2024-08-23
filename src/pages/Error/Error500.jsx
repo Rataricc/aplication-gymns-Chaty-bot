@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom';
 
 export default function Error500() {
     return (
@@ -11,7 +12,7 @@ export default function Error500() {
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><a href="#">Home</a></li>
+                                <li className="breadcrumb-item"><Link to="#">Home</Link></li>
                                 <li className="breadcrumb-item active">500 Error Page</li>
                             </ol>
                         </div>
@@ -26,7 +27,7 @@ export default function Error500() {
                         <h3><i className="fas fa-exclamation-triangle text-danger" /> Oops! Something went wrong.</h3>
                         <p>
                             We will work on fixing that right away.
-                            Meanwhile, you may <a href="../../index.html">return to dashboard</a> or try using the search form.
+                            Meanwhile, you may <Link to="../../index.html">return to dashboard</Link> or try using the search form.
                         </p>
                         <form className="search-form">
                             <div className="input-group">

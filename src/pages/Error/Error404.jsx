@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Error404() {
     return (
@@ -11,7 +12,7 @@ export default function Error404() {
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><a href="http://localhost:3000">Home</a></li>
+                                <li className="breadcrumb-item"><Link to="http://localhost:3000">Home</Link></li>
                                 <li className="breadcrumb-item active">404 Error Page</li>
                             </ol>
                         </div>
@@ -25,7 +26,7 @@ export default function Error404() {
                         <h3><i className="fas fa-exclamation-triangle text-warning" /> Oops! Page not found.</h3>
                         <p>
                             We could not find the page you were looking for.
-                            Meanwhile, you may <a href="http://localhost:3000">return to dashboard</a> or try using the search form.
+                            Meanwhile, you may <Link to="http://localhost:3000">return to dashboard</Link> or try using the search form.
                         </p>
                      
                     </div>
