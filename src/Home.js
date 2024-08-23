@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Aside from './components/Aside';
 import Content from './components/Content';
@@ -18,42 +18,9 @@ import PaymentsAgregate from './components/PaymentsData/PaymentsAgregate.js';
 import DashboardPayment from './components/PaymentsData/DashboardPayment.js';
 
 
-//import { useNavigate } from 'react-router-dom';
-//import { AuthContext } from './components/AuthProvider/AuthProvider.js';
-//import QrCode from './components/QrCode'; Este componente no va aca y todavia no exite aun.
-
 export default function Home() {
-    {/*
-    const [asideOpen, setAsideOpen] = useState(true);
 
-    useEffect(() => {
-        // Recuperamos el estado almacenado en localStorage cuando el componente se monta.
-        const state = localStorage.getItem('homeState');
-        if (state) {
-            const parsedState = JSON.parse(state);
-            // Restauramos el estado utilizando el valor almacenado.
-            setAsideOpen(parsedState.asideOpen);
-        }
-
-        // Antes de desmontar el componente, almacenamos el estado actual en localStorage.
-        return () => {
-            const currentState = {
-                asideOpen,
-            };
-            localStorage.setItem('homeState', JSON.stringify(currentState));
-        };
-    }, [asideOpen]);
-    
-    const toggleAside = () => {
-        setAsideOpen(prevState => !prevState);
-    };
-
-     <button onClick={toggleAside}>
-                {asideOpen ? 'Close Aside' : 'Open Aside'}
-            </button>
-            {asideOpen && <Aside />}*/}
-
-    const [gymName, setGymName] = useState('');
+    const [ setGymName] = useState('');
 
     useEffect(() => {
         const name = localStorage.getItem('gymName');
@@ -84,4 +51,4 @@ export default function Home() {
             <Footer />
         </div>
     );
-}; 
+};

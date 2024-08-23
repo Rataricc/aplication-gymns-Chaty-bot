@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 //import { gsap } from 'gsap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';

@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthProvider, AuthContext } from './AuthProvider/AuthProvider.js';
+import { AuthContext } from './AuthProvider/AuthProvider.js';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
 
@@ -18,22 +19,22 @@ export default function Header() {
                 {/* Left navbar links */}
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" /></a>
+                        <Link className="nav-link" data-widget="pushmenu" to="#" role="button"><i className="fas fa-bars" /></Link>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
-                        <a href="http://localhost:3000/content" className="nav-link">Home</a>
+                        <Link to="http://localhost:3000/content" className="nav-link">Home</Link>
                     </li>
                     <li className="nav-item d-none d-sm-inline-block">
-                        <a href="#" className="nav-link">Contact</a>
+                        <Link to="#" className="nav-link">Contact</Link>
                     </li>
                 </ul>
                 {/* Right navbar links */}
                 <ul className="navbar-nav ml-auto">
                     {/* Navbar Search */}
                     <li className="nav-item">
-                        <a className="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <Link className="nav-link" data-widget="navbar-search" to="#" role="button">
                             <i className="fas fa-search" />
-                        </a>
+                        </Link>
                         <div className="navbar-search-block">
                             <form className="form-inline">
                                 <div className="input-group input-group-sm">
@@ -52,12 +53,12 @@ export default function Header() {
                     </li>
                     {/* Messages Dropdown Menu */}
                     <li className="nav-item dropdown">
-                        <a className="nav-link" data-toggle="dropdown" href="#">
+                        <Link className="nav-link" data-toggle="dropdown" to="#">
                             <i className="far fa-comments" />
                             <span className="badge badge-danger navbar-badge"></span>
-                        </a>
+                        </Link>
                         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 {/* Message Start */}
                                 <div className="media">
                                     <img src="dist/img/user1-128x128.jpg" alt="User Avatar" className="img-size-50 mr-3 img-circle" />
@@ -71,9 +72,9 @@ export default function Header() {
                                     </div>
                                 </div>
                                 {/* Message End */}
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 {/* Message Start */}
                                 <div className="media">
                                     <img src="dist/img/user8-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
@@ -87,9 +88,9 @@ export default function Header() {
                                     </div>
                                 </div>
                                 {/* Message End */}
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 {/* Message Start */}
                                 <div className="media">
                                     <img src="dist/img/user3-128x128.jpg" alt="User Avatar" className="img-size-50 img-circle mr-3" />
@@ -103,47 +104,47 @@ export default function Header() {
                                     </div>
                                 </div>
                                 {/* Message End */}
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item dropdown-footer">See All Messages</a>
+                            <Link to="#" className="dropdown-item dropdown-footer">See All Messages</Link>
                         </div>
                     </li>
                     {/* Notifications Dropdown Menu */}
                     <li className="nav-item dropdown">
-                        <a className="nav-link" data-toggle="dropdown" href="#">
+                        <Link className="nav-link" data-toggle="dropdown" to="#">
                             <i className="far fa-bell" />
                             <span className="badge badge-warning navbar-badge"></span>
-                        </a>
+                        </Link>
                         <div className="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <span className="dropdown-item dropdown-header">15 Notifications</span>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 <i className="fas fa-envelope mr-2" /> 4 new messages
                                 <span className="float-right text-muted text-sm"></span>
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 <i className="fas fa-users mr-2" /> 8 friend requests
                                 <span className="float-right text-muted text-sm">12 hours</span>
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item">
+                            <Link to="#" className="dropdown-item">
                                 <i className="fas fa-file mr-2" /> 3 new reports
                                 <span className="float-right text-muted text-sm">2 days</span>
-                            </a>
+                            </Link>
                             <div className="dropdown-divider" />
-                            <a href="#" className="dropdown-item dropdown-footer">See All Notifications</a>
+                            <Link to="#" className="dropdown-item dropdown-footer">See All Notifications</Link>
                         </div>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <Link className="nav-link" data-widget="fullscreen" to="#" role="button">
                             <i className="fas fa-expand-arrows-alt" />
-                        </a>
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="index3.html#" role="button">
+                        <Link className="nav-link" data-widget="control-sidebar" data-slide="true" to="index3.html#" role="button">
                             <i className="fas fa-th-large" />
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="nav-item">
