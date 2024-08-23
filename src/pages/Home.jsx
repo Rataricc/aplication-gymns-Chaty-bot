@@ -25,7 +25,6 @@ export default function Home() {
                             <Nav.Link href="#1">¿Qué hacemos?</Nav.Link>
                             <Nav.Link href="#2">Mensajes</Nav.Link>
                             <Nav.Link href="#3">¿Cómo ingresar?</Nav.Link>
-                            {/*<Nav.Link href="http://localhost:3000/login">Login</Nav.Link>*/}
                             <Nav.Link href="https://chaty-gyms.netlify.app/login">Login</Nav.Link>
                         </Nav>
                     
