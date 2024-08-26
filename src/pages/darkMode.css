@@ -18,3 +18,36 @@
     background-color: #bb86fc;
     border: none;
 }
+
+/* Centrar los elementos del menú en la versión de escritorio */
+.navbar-nav {
+    justify-content: center;
+    width: 100%;
+}
+
+.navbar-nav .nav-item {
+    margin: 0 10px; /* Espaciado entre elementos del menú */
+}
+
+/* Ajustes de imágenes para evitar que se salgan del contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Asegurar que el contenedor no cause overflow horizontal */
+.container, .content-section {
+    overflow-x: hidden;
+}
+
+/* Ajustes específicos para el layout de la página */
+.content-section .row {
+    flex-wrap: wrap;
+}
+
+.col-md-6 {
+    padding: 15px;
+}

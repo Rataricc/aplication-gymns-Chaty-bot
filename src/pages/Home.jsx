@@ -18,19 +18,21 @@ export default function Home() {
     return (
         <>
             <div className={`content ${isDarkMode ? "dark-mode" : ""}`}>
-                <Navbar bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
+                <Navbar expand="lg" bg={isDarkMode ? "dark" : "light"} variant={isDarkMode ? "dark" : "light"}>
                     <Container>
                         <Navbar.Brand to="#home">Chaty-Bot</Navbar.Brand>
-                        <Nav className="me-auto">
-                            <Nav.Link href="#1">¿Qué hacemos?</Nav.Link>
-                            <Nav.Link href="#2">Mensajes</Nav.Link>
-                            <Nav.Link href="#3">¿Cómo ingresar?</Nav.Link>
-                            <Nav.Link as={Link} to="/login">Login</Nav.Link>
-                        </Nav>
-                    
-                        <button onClick={toggleDarkMode} className="btn btn-secondary">
-                            {isDarkMode ? "Light Mode" : "Dark Mode"}
-                        </button>
+                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav className="me-auto">
+                                <Nav.Link href="#1">¿Qué hacemos?</Nav.Link>
+                                <Nav.Link href="#2">Mensajes</Nav.Link>
+                                <Nav.Link href="#3">¿Cómo ingresar?</Nav.Link>
+                                <Nav.Link as={Link} to="/login">Login</Nav.Link>
+                            </Nav>
+                            <button onClick={toggleDarkMode} className="btn btn-secondary" style={{ fontSize: '1.5rem', padding: '0.5rem' }}>
+                                <i className={`bi ${isDarkMode ? "bi-sun" : "bi-moon"}`}></i>
+                            </button>
+                        </Navbar.Collapse>
                     </Container>
                 </Navbar>
 
