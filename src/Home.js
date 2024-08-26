@@ -20,12 +20,12 @@ import DashboardPayment from './components/PaymentsData/DashboardPayment.js';
 
 export default function Home() {
 
-    const [ setGymName] = useState('');
+    const [ gymName, setGymName] = useState('');
 
     useEffect(() => {
         const name = localStorage.getItem('gymName');
         setGymName(name);
-    }, [setGymName]);
+    }, []);
 
     return (
         <div>

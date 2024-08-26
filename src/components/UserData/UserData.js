@@ -11,7 +11,7 @@ export default function UserData() {
             .then(response => response.json())
             .then(data => setData(data))
             .catch(error => console.error('Error fetching users:', error));
-    }, [endpoint]);
+    }, []);
 
     // Ver esta funcion de actualizar, tiene que llamar al formulario de actualizar. 
     // Funciona pero llama a un alert para poder actualizar.
