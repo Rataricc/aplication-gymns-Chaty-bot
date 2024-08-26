@@ -12,7 +12,7 @@ export default function Error404() {
                         </div>
                         <div className="col-sm-6">
                             <ol className="breadcrumb float-sm-right">
-                                <li className="breadcrumb-item"><Link to="http://localhost:3000">Home</Link></li>
+                                <li className="breadcrumb-item"><Link to="https://chaty-gyms.netlify.app/">Home</Link></li>
                                 <li className="breadcrumb-item active">404 Error Page</li>
                             </ol>
                         </div>
