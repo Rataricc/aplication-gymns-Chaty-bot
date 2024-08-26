@@ -17,7 +17,6 @@ import PaymentsData from './components/PaymentsData/PaymentsData.js';
 import PaymentsAgregate from './components/PaymentsData/PaymentsAgregate.js';
 import DashboardPayment from './components/PaymentsData/DashboardPayment.js';
 
-
 export default function Home() {
 
     const [ gymName, setGymName] = useState('');
