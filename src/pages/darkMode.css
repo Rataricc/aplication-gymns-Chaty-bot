@@ -58,7 +58,6 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    /*background-color: rgba(0, 0, 0, 0.5);  Fondo oscuro semitransparente */
     padding: 20px;
     border-radius: 10px;
 }
@@ -80,4 +79,11 @@ img {
 .custom-carousel .carousel-item video {
     object-fit: cover;
     height: 100%;
+}
+
+/* Ocultar texto en dispositivos móviles */
+@media (max-width: 768px) {
+    .custom-carousel .carousel-caption-custom {
+        display: none;
+    }
 }
