@@ -51,3 +51,33 @@ img {
 .col-md-6 {
     padding: 15px;
 }
+
+.custom-carousel .carousel-caption-custom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /*background-color: rgba(0, 0, 0, 0.5);  Fondo oscuro semitransparente */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.custom-carousel .carousel-caption-custom h3 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.custom-carousel .carousel-caption-custom p {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.custom-carousel .carousel-item {
+    height: 70vh; /* Ajusta la altura del carrusel */
+}
+
+.custom-carousel .carousel-item video {
+    object-fit: cover;
+    height: 100%;
+}

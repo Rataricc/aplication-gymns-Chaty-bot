@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
 import './darkMode.css';
 
 export default function Home() {
@@ -35,6 +36,52 @@ export default function Home() {
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
+
+                {/*Ver bien el tema de carrosuel, donde lo voy a poner y como va hacer...*/}
+                <Carousel className="custom-carousel">
+                    <Carousel.Item>
+                        <video
+                            className="d-block w-100"
+                            src="https://res.cloudinary.com/dydhkd08i/video/upload/v1724780383/3129957-uhd_3840_2160_25fps_rgeery.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <Carousel.Caption className="carousel-caption-custom">
+                            <h3>Bienvenido a Chaty-Bot</h3>
+                            <p>Descubre cómo nuestra plataforma puede transformar la gestión de tu negocio con herramientas avanzadas y automatización inteligente.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <video
+                            className="d-block w-100"
+                            src="https://res.cloudinary.com/dydhkd08i/video/upload/v1724783744/8348732-uhd_3840_2160_25fps_ychqsl.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <Carousel.Caption className="carousel-caption-custom">
+                            <h3>Integración con WhatsApp</h3>
+                            <p>Interactúa en tiempo real con tus clientes a través de nuestro bot automatizado, optimizando la comunicación y mejorando la experiencia del usuario.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <video 
+                            className="d-block w-100"
+                            src="https://res.cloudinary.com/dydhkd08i/video/upload/v1724780721/3130284-uhd_3840_2160_30fps_ykcqwf.mp4"
+                            autoPlay
+                            loop
+                            muted
+                        />
+                        <Carousel.Caption className="carousel-caption-custom">
+                            <h3>Analítica Avanzada</h3>
+                            <p>Obtén insights detallados sobre el rendimiento de tu negocio, permitiéndote tomar decisiones informadas para un crecimiento sostenible.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+
+                {/*------------------*/}
+
 
                 <div className="container">
                     <div className="content-section mt-4">
