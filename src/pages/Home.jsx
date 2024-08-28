@@ -1,20 +1,29 @@
 import React, { useState } from 'react';
-//import { gsap } from 'gsap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import './darkMode.css';
 
 export default function Home() {
-    //const imageRef = useRef(null);
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    const [modalImage, setModalImage] = useState('');
 
     const toggleDarkMode = () => {
         setIsDarkMode(!isDarkMode);
     };
+
+    const handleImageClick = (imageSrc) => {
+        setModalImage(imageSrc);
+        setShowModal(true);
+    };
+
+    const handleClose = () => setShowModal(false);
 
     return (
         <>
@@ -66,7 +75,7 @@ export default function Home() {
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <video 
+                        <video
                             className="d-block w-100"
                             src="https://res.cloudinary.com/dydhkd08i/video/upload/v1724780721/3130284-uhd_3840_2160_30fps_ykcqwf.mp4"
                             autoPlay
@@ -97,7 +106,13 @@ export default function Home() {
                             </div>
                             <div className="col-md-6">
                                 <br /><br />
-                                <img src="https://res.cloudinary.com/dydhkd08i/image/upload/v1717118375/bot_phoxha.png" />
+                                <img
+                                    src="https://res.cloudinary.com/dydhkd08i/image/upload/v1717118375/bot_phoxha.png"
+                                    alt="Chaty Bot"
+                                    className="img-fluid"
+                                    onClick={() => handleImageClick("https://res.cloudinary.com/dydhkd08i/image/upload/v1717118375/bot_phoxha.png")}
+                                    style={{ cursor: 'pointer' }}
+                                />
                             </div>
                         </div>
                     </div>
@@ -116,9 +131,21 @@ export default function Home() {
                                 </ul>
                             </div>
                             <div className="col-md-6 order-md-1">
-                                <img src="https://res.cloudinary.com/dydhkd08i/image/upload/c_crop,w_420,h_250/v1717082948/table_mdr7sa.png" alt="" className="img-fluid mb-3" />
+                                <img
+                                    src="https://res.cloudinary.com/dydhkd08i/image/upload/c_crop,w_420,h_250/v1717082948/table_mdr7sa.png"
+                                    alt="Gestión Integral"
+                                    className="img-fluid mb-3"
+                                    onClick={() => handleImageClick("https://res.cloudinary.com/dydhkd08i/image/upload/c_crop,w_420,h_250/v1717082948/table_mdr7sa.png")}
+                                    style={{ cursor: 'pointer' }}
+                                />
                                 <br /><br /><br /><br /><br /><br />
-                                <img src="https://res.cloudinary.com/dydhkd08i/image/upload/v1717118214/tableimg_x8el36.png" />
+                                <img
+                                    src="https://res.cloudinary.com/dydhkd08i/image/upload/v1717118214/tableimg_x8el36.png"
+                                    alt="Control de Órdenes"
+                                    className="img-fluid"
+                                    onClick={() => handleImageClick("https://res.cloudinary.com/dydhkd08i/image/upload/v1717118214/tableimg_x8el36.png")}
+                                    style={{ cursor: 'pointer' }}
+                                />
                             </div>
                         </div>
                     </div>
@@ -164,6 +191,20 @@ export default function Home() {
                 </div>
                 <Footer />
             </div>
+
+            <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Vista previa de la imagen</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <img src={modalImage} alt="Vista previa" className="img-fluid" />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cerrar
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </>
     );
 }; 
