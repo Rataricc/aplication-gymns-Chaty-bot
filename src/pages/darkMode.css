@@ -1,5 +1,6 @@
 /* styles.css */
 
+/* Estilos generales para el modo oscuro */
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -52,6 +53,16 @@ img {
     padding: 15px;
 }
 
+/* Estilos específicos para el carrusel personalizado */
+.custom-carousel .carousel-item {
+    height: 70vh; /* Ajusta la altura del carrusel */
+}
+
+.custom-carousel .carousel-item video {
+    object-fit: cover;
+    height: 100%;
+}
+
 .custom-carousel .carousel-caption-custom {
     position: absolute;
     top: 50%;
@@ -72,18 +83,23 @@ img {
     color: #ccc;
 }
 
-.custom-carousel .carousel-item {
-    height: 70vh; /* Ajusta la altura del carrusel */
+/* Ocultar los botones "Previous" y "Next" del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
 }
 
-.custom-carousel .carousel-item video {
-    object-fit: cover;
-    height: 100%;
-}
-
-/* Ocultar texto en dispositivos móviles */
+/* Ajustes específicos para dispositivos móviles */
 @media (max-width: 768px) {
     .custom-carousel .carousel-caption-custom {
-        display: none;
+        padding: 10px 0px; /* Aumentar padding en dispositivos móviles */
+    }
+
+    .custom-carousel .carousel-caption-custom h3 {
+        font-size: 1rem; /* Tamaño más pequeño para el título */
+    }
+
+    .custom-carousel .carousel-caption-custom p {
+        font-size: 1rem; /* Tamaño más pequeño para el párrafo */
     }
 }
