@@ -7,14 +7,39 @@ export default function Register() {
         username: '',
         email: '',
         address: '',
-        phone: '',        
+        phone: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
+        image: null  // Añadimos un campo para la imagen
     });
+    const [previewImage, setPreviewImage] = useState(null);
     const [message, setMessage] = useState('');
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setFormData({ ...formData, image: file });
+        setPreviewImage(URL.createObjectURL(file));
+    };
+
+    const handleImageRemove = () => {
+        setFormData({ ...formData, image: null });
+        setPreviewImage(null);
+    };
+
+    const handleDragOver = (e) => {
+        e.preventDefault();
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        const file = e.dataTransfer.files[0];
+        setFormData({ ...formData, image: file });
+        setPreviewImage(URL.createObjectURL(file));
     };
 
     const handleSubmit = async (e) => {
@@ -26,29 +51,28 @@ export default function Register() {
         }
 
         try {
+            const data = new FormData();
+            data.append('name', formData.name);
+            data.append('username', formData.username);
+            data.append('email', formData.email);
+            data.append('address', formData.address);
+            data.append('phone', formData.phone);
+            data.append('password', formData.password);
+            data.append('image', formData.image); // Añadimos la imagen al FormData
+
             const response = await fetch('http://localhost:4001/api/signUp', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    username: formData.username,
-                    email: formData.email,
-                    address: formData.address,
-                    phone: formData.phone,
-                    password: formData.password
-                })
+                body: data
             });
 
-            const data = await response.json();
-            console.log("Esto es data: ",data);
+            const result = await response.json();
+            console.log("Esto es data: ", result);
 
             if (response.ok) {
                 setMessage('Registration successful!');
-                // You can redirect the user to login or another page here
+                // Puedes redirigir al usuario a la página de login u otra página aquí
             } else {
-                setMessage(data.message || 'Registration failed');
+                setMessage(result.message || 'Registration failed');
             }
         } catch (error) {
             setMessage('An error occurred: ' + error.message);
@@ -62,7 +86,7 @@ export default function Register() {
                 <div className="register-box">
                     <div className="card card-outline card-primary">
                         <div className="card-header text-center">
-                            <Link to="#" className="h1"><b>Chaty</b>Bot</Link>
+                            <Link to="https://chaty-gyms.netlify.app" className="h1"><b>Chaty</b>Bot</Link>
                         </div>
                         <div className="card-body">
                             <p className="login-box-msg">Register a new membership</p>
@@ -180,6 +204,40 @@ export default function Register() {
                                         </div>
                                     </div>
                                 </div>
+                                <div
+                                    className="input-group mb-3"
+                                    onDragOver={handleDragOver}
+                                    onDrop={handleDrop}
+                                >
+                                    <input
+                                        type="file"
+                                        className="form-control"
+                                        onChange={handleImageChange}
+                                        required
+                                    />
+                                </div>
+                                {previewImage && (
+                                    <div className="mb-3">
+                                        <img
+                                            src={previewImage}
+                                            alt="Preview"
+                                            style={{
+                                                width: '100px',
+                                                height: '100px',
+                                                borderRadius: '50%',
+                                                objectFit: 'cover',
+                                                border: '2px solid #007bff'
+                                            }}
+                                        />
+                                        <button
+                                            type="button"
+                                            className="btn btn-danger btn-sm mt-2"
+                                            onClick={handleImageRemove}
+                                        >
+                                            Remove Image
+                                        </button>
+                                    </div>
+                                )}
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="icheck-primary">
@@ -189,11 +247,9 @@ export default function Register() {
                                             </label>
                                         </div>
                                     </div>
-                                    {/* /.col */}
                                     <div className="col-4">
                                         <button type="submit" className="btn btn-primary btn-block">Register</button>
                                     </div>
-                                    {/* /.col */}
                                 </div>
                             </form>
                             <div className="social-auth-links text-center">
@@ -208,10 +264,9 @@ export default function Register() {
                             </div>
                             <Link to="http://localhost:3000/login" className="text-center">I already have a membership</Link>
                         </div>
-                        {/* /.form-box */}
-                    </div>{/* /.card */}
+                    </div>
                 </div>
             </center>
         </>
     );
-}
+}; 
